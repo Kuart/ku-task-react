@@ -1,0 +1,728 @@
+@import url("https://fonts.googleapis.com/css?family=Jua");
+html, body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  font-size: 16px;
+  font-family: Jua, sans-serif;
+  min-width: 320px;
+  height: 100%;
+  overflow: hidden;
+  color: #fff; }
+  html #root, body #root {
+    height: 100%; }
+
+.btn {
+  width: 60%;
+  height: 10vh;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-family: Jua, sans-serif;
+  color: #0e0b3b;
+  font-size: 2rem;
+  box-shadow: 0 0 10px #000;
+  transition: scale(2);
+  background-color: #fff;
+  -webkit-tap-highlight-color: transparent; }
+  .btn:hover {
+    background-color: #5FC5BA;
+    outline: none; }
+  .btn:active {
+    transform: scale(1.05);
+    outline: none; }
+  .btn:focus {
+    outline: none; }
+
+.active {
+  opacity: 1;
+  background-color: #5FC5BA;
+  transition: opacity 0.7s ease; }
+
+.pas {
+  opacity: 0.2;
+  transition: opacity 0.7s ease; }
+
+.gm {
+  transition: scale(2); }
+  .gm:hover {
+    background-color: #5FC5BA;
+    transform: scale(1.05); }
+  .gm:active {
+    transform: scale(1.2); }
+
+.user {
+  color: #5FC5BA; }
+
+.block {
+  pointer-events: none;
+  filter: grayscale(100%); }
+
+.animated-tag {
+  width: 100%;
+  height: 100%;
+  background: #0e0b3b;
+  opacity: 1;
+  transition: opacity 1s ease;
+  position: fixed;
+  z-index: 9999; }
+
+.animated {
+  opacity: 0; }
+
+.none {
+  display: none; }
+
+.bgimage {
+  width: 15vw;
+  height: 30vh;
+  animation: pulse 1s alternate-reverse infinite;
+  -webkit-animation: pulse 1s alternate-reverse infinite; }
+
+@keyframes pulse {
+  0% {
+    background: url(../images/5.png) no-repeat center/80%; }
+  25% {
+    background: url(../images/4.png) no-repeat center/80%; }
+  50% {
+    background: url(../images/3.png) no-repeat center/80%; }
+  75% {
+    background: url(../images/2.png) no-repeat center/80%; }
+  100% {
+    background: url(../images/1.png) no-repeat center/80%; } }
+
+@-webkit-keyframes pulse {
+  0% {
+    background: url(../images/5.png) no-repeat center/80%; }
+  25% {
+    background: url(../images/4.png) no-repeat center/80%; }
+  50% {
+    background: url(../images/3.png) no-repeat center/80%; }
+  75% {
+    background: url(../images/2.png) no-repeat center/80%; }
+  100% {
+    background: url(../images/1.png) no-repeat center/80%; } }
+
+.container {
+  background: #0e0b3b;
+  height: 100%;
+  width: 100vw;
+  margin: auto;
+  display: grid;
+  grid-template-rows: 1fr 0.5fr 1.5fr; }
+  .container header {
+    font-size: 3rem;
+    text-align: center;
+    margin: auto; }
+  .container .arrows {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100%;
+    justify-content: center;
+    text-align: center;
+    height: 100%; }
+    .container .arrows img {
+      width: 100%;
+      height: 150%;
+      z-index: 1; }
+      .container .arrows img:nth-child(1) {
+        transform: rotate(-50deg) scale(-1, 1); }
+      .container .arrows img:nth-child(2) {
+        transform: rotate(50deg); }
+  .container .options {
+    display: grid;
+    grid-template-areas: "one three two";
+    grid-template-rows: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    grid-template-columns: 40% 20% 40%; }
+    .container .options .rules {
+      grid-area: one; }
+      .container .options .rules img {
+        width: 60%;
+        height: 60%; }
+    .container .options .random {
+      grid-area: three; }
+      .container .options .random .btn {
+        width: 60%;
+        height: 10vh;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+        font-family: Jua, sans-serif;
+        color: #0e0b3b;
+        font-size: 2rem;
+        box-shadow: 0 0 10px #000;
+        transition: scale(2); }
+        .container .options .random .btn:hover {
+          background-color: #5FC5BA; }
+        .container .options .random .btn:active {
+          transform: scale(1.05); }
+    .container .options .link {
+      grid-area: two;
+      z-index: 2;
+      font-size: 2rem; }
+      .container .options .link span {
+        display: inline-block;
+        z-index: 100;
+        color: #5FC5BA; }
+        .container .options .link span:active {
+          transform: scale(1.1); }
+      .container .options .link .lit {
+        font-size: 1rem; }
+
+.wraper {
+  background: #0e0b3b;
+  height: 100%;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 20% 45% 30%;
+  overflow: hidden; }
+  .wraper .info {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+    align-items: center;
+    color: #fff; }
+    .wraper .info .score_player-one span {
+      font-size: 1rem;
+      color: #5FC5BA; }
+    .wraper .info .text {
+      font-size: 2rem; }
+    .wraper .info .score_player-two span {
+      font-size: 1rem;
+      color: #5FC5BA; }
+  .wraper .middle {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 25% 50% 25%; }
+    .wraper .middle .center {
+      display: grid;
+      grid-template-rows: 60% 30%;
+      height: 100%; }
+      .wraper .middle .center .anim {
+        width: 100%;
+        height: 30vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr; }
+        .wraper .middle .center .anim .lft {
+          display: grid;
+          align-items: center;
+          justify-content: center;
+          z-index: 99; }
+          .wraper .middle .center .anim .lft .rocks {
+            animation: .65s ease-out 0s show;
+            width: 15vw;
+            height: 30vh;
+            background: url(../images/1.png) no-repeat center/80%;
+            z-index: 100; }
+          .wraper .middle .center .anim .lft .papers {
+            animation: .65s ease-out 0s show;
+            width: 15vw;
+            height: 30vh;
+            background: url(../images/2.png) no-repeat center/90%;
+            z-index: 100; }
+          .wraper .middle .center .anim .lft .scissorss {
+            animation: .65s ease-out 0s show;
+            width: 15vw;
+            height: 30vh;
+            background: url(../images/3.png) no-repeat center/100%;
+            transform: scale(-1, 1);
+            z-index: 100; }
+          .wraper .middle .center .anim .lft .lizards {
+            animation: .65s ease-out 0s show;
+            width: 15vw;
+            height: 30vh;
+            background: url(../images/4.png) no-repeat center/80%;
+            transform: scale(-1, 1);
+            z-index: 100; }
+          .wraper .middle .center .anim .lft .spocks {
+            animation: .65s ease-out 0s show;
+            width: 15vw;
+            height: 30vh;
+            background: url(../images/5.png) no-repeat center/90%;
+            z-index: 100; }
+        .wraper .middle .center .anim .rht {
+          display: grid;
+          align-items: center;
+          justify-content: center;
+          z-index: 99; }
+          .wraper .middle .center .anim .rht .rocks {
+            animation: .65s ease-out 0s show;
+            width: 15vw;
+            height: 30vh;
+            background: url(../images/1.png) no-repeat center/80%;
+            z-index: 100; }
+          .wraper .middle .center .anim .rht .papers {
+            animation: .65s ease-out 0s show;
+            width: 15vw;
+            height: 30vh;
+            background: url(../images/2.png) no-repeat center/90%;
+            z-index: 100; }
+          .wraper .middle .center .anim .rht .scissorss {
+            animation: .65s ease-out 0s show;
+            width: 15vw;
+            height: 30vh;
+            background: url(../images/3.png) no-repeat center/100%;
+            z-index: 100; }
+          .wraper .middle .center .anim .rht .lizards {
+            animation: .65s ease-out 0s show;
+            width: 15vw;
+            height: 30vh;
+            background: url(../images/4.png) no-repeat center/80%;
+            z-index: 100; }
+          .wraper .middle .center .anim .rht .spocks {
+            animation: .65s ease-out 0s show;
+            width: 15vw;
+            height: 30vh;
+            background: url(../images/5.png) no-repeat center/90%;
+            z-index: 100; }
+      .wraper .middle .center .buttons {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        align-items: flex-end;
+        justify-content: center;
+        z-index: 101; }
+        .wraper .middle .center .buttons .rock {
+          background: url(../images/1.png) no-repeat center/80%;
+          width: 6vw;
+          height: 12vh;
+          cursor: pointer;
+          border-radius: 50%;
+          box-shadow: none;
+          grid-column: 3/4; }
+        .wraper .middle .center .buttons .paper {
+          background: url(../images/2.png) no-repeat center/90%;
+          width: 6vw;
+          height: 14vh;
+          cursor: pointer;
+          border-radius: 50%;
+          box-shadow: none;
+          z-index: 101; }
+        .wraper .middle .center .buttons .scissors {
+          background: url(../images/3.png) no-repeat center/100%;
+          width: 6vw;
+          height: 12vh;
+          cursor: pointer;
+          border-radius: 50%;
+          box-shadow: none; }
+        .wraper .middle .center .buttons .lizard {
+          background: url(../images/4.png) no-repeat center/80%;
+          width: 6vw;
+          height: 12vh;
+          cursor: pointer;
+          border-radius: 50%;
+          box-shadow: none; }
+        .wraper .middle .center .buttons .spock {
+          background: url(../images/5.png) no-repeat center/90%;
+          width: 6vw;
+          height: 12vh;
+          cursor: pointer;
+          border-radius: 50%;
+          box-shadow: none;
+          z-index: 101; }
+    .wraper .middle .newgame {
+      align-self: center;
+      justify-self: center; }
+  .wraper .bottom {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-areas: "rules chat back"; }
+    .wraper .bottom .rules-game {
+      grid-area: rules;
+      text-align: center;
+      align-self: center; }
+      .wraper .bottom .rules-game img {
+        align-self: center;
+        width: 60%;
+        height: 60%; }
+    .wraper .bottom .chat {
+      grid-area: chat;
+      display: grid;
+      grid-template-rows: 80% 20%; }
+      .wraper .bottom .chat .window {
+        width: 100%;
+        height: 23.5vh;
+        box-shadow: 0 0 5px #000, 0 0 5px #000 inset;
+        position: relative;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        border: 1px solid #000;
+        font-size: 1.4rem;
+        list-style: none;
+        display: flex; }
+        .wraper .bottom .chat .window::scrollbar-track {
+          height: 10px;
+          width: 6px;
+          background: transparent; }
+        .wraper .bottom .chat .window::-webkit-scrollbar {
+          width: 12px; }
+        .wraper .bottom .chat .window::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }
+        .wraper .bottom .chat .window ul {
+          align-self: flex-end;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          flex-grow: 1;
+          justify-content: flex-end;
+          word-wrap: break-word;
+          width: 38vw;
+          padding: 5vw 0 0 1vw; }
+          .wraper .bottom .chat .window ul li {
+            position: relative;
+            list-style: none;
+            margin-bottom: 0.1vh;
+            animation: .65s ease-out 0s show; }
+          .wraper .bottom .chat .window ul .time {
+            font-size: 0.9rem;
+            opacity: 0.6; }
+      .wraper .bottom .chat form {
+        margin: 2px;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 70% 30%;
+        grid-gap: 1.5vw;
+        width: 100%;
+        height: 100%; }
+        .wraper .bottom .chat form input {
+          width: 100%;
+          height: 100%;
+          border: none;
+          outline: none;
+          border-radius: 10px;
+          padding-left: 1vw;
+          font-family: 'Jua', sans-serif;
+          color: #000;
+          font-size: 1.5rem;
+          box-shadow: 0 0 5px #000, 0 0 5px #000 inset; }
+        .wraper .bottom .chat form .sendb {
+          width: 90%;
+          height: 100%;
+          border-radius: 5px; }
+    .wraper .bottom .back {
+      grid-area: back;
+      text-align: center;
+      align-self: center; }
+
+@keyframes show {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@media only screen and (min-width: 1600px) {
+  .container header {
+    font-size: 5rem; }
+  .container .arrows img {
+    width: 100%;
+    height: 50%; }
+  .container .options .link {
+    font-size: 3rem; } }
+
+html body .btn {
+  font-size: 3rem; }
+
+@media only screen and (min-width: 2000px) {
+  .container header {
+    font-size: 6rem; }
+  .container .arrows img {
+    width: 100%;
+    height: 50%; }
+  .container .options .link {
+    font-size: 4.5rem; } }
+
+@media only screen and (max-width: 1599px) {
+  .container header {
+    font-size: 4rem; }
+  .container .arrows img {
+    width: 100%;
+    height: 80%; }
+  .wraper .info {
+    font-size: 2rem; }
+    .wraper .info .text {
+      font-size: 3rem; }
+  .wraper .bottom .rules-game img {
+    width: 60%;
+    height: 60%; }
+  .wraper .bottom .chat .window {
+    height: 23.5vh;
+    font-size: 1.5rem; }
+    .wraper .bottom .chat .window ul .time {
+      font-size: 1rem; }
+  .wraper .bottom .chat form input {
+    height: 80%;
+    font-size: 2rem; }
+  .wraper .bottom .chat form .sendb {
+    font-size: 2rem;
+    height: 80%; } }
+
+@media only screen and (max-width: 1070px) {
+  .container header {
+    font-size: 2.5rem; }
+  .container .arrows img {
+    width: 100%;
+    height: 50%; }
+  .container .options .link {
+    font-size: 1.5rem; }
+  .wraper .middle .newgame {
+    font-size: 1.2rem !important; }
+  .wraper .middle .center .buttons .rock {
+    width: 7vw;
+    height: 14vh; }
+  .wraper .middle .center .buttons .paper {
+    width: 7vw;
+    height: 14vh; }
+  .wraper .middle .center .buttons .scissors {
+    width: 7vw;
+    height: 14vh; }
+  .wraper .middle .center .buttons .lizard {
+    width: 7vw;
+    height: 14vh; }
+  .wraper .middle .center .buttons .spock {
+    width: 7vw;
+    height: 14vh; }
+  .wraper .bottom .chat .window {
+    font-size: 1rem; }
+    .wraper .bottom .chat .window ul .time {
+      font-size: .6rem; }
+  .wraper .bottom .chat form input {
+    height: 80%;
+    font-size: 1.5rem; } }
+
+@media only screen and (max-width: 900px) {
+  .container {
+    grid-template-rows: 0.7fr 1.5fr;
+    height: 100%; }
+    .container .arrows {
+      display: none; }
+    .container .options {
+      margin-top: 5vh;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "one two" "three three";
+      grid-template-rows: 1fr 1fr; }
+      .container .options .rules {
+        grid-area: "one"; }
+      .container .options .random {
+        grid-area: "three"; }
+      .container .options .link {
+        grid-area: "two"; } }
+
+@media only screen and (max-width: 700px) {
+  .container header {
+    font-size: 2rem; }
+  .wraper .info {
+    font-size: 1rem; }
+    .wraper .info .text {
+      font-size: 1.5rem; }
+  .wraper .middle .center .buttons .rock {
+    width: 10vw;
+    height: 20vh; }
+  .wraper .middle .center .buttons .paper {
+    width: 10vw;
+    height: 20vh; }
+  .wraper .middle .center .buttons .scissors {
+    width: 10vw;
+    height: 20vh; }
+  .wraper .middle .center .buttons .lizard {
+    width: 10vw;
+    height: 20vh; }
+  .wraper .middle .center .buttons .spock {
+    width: 10vw;
+    height: 20vh; }
+  .wraper .bottom {
+    grid-template-areas: "chat chat back"; }
+    .wraper .bottom .rules-game {
+      display: none; }
+      .wraper .bottom .rules-game img {
+        width: 60%;
+        height: 60%; }
+    .wraper .bottom .chat .window {
+      font-size: 1rem; }
+      .wraper .bottom .chat .window ul {
+        width: 70vw;
+        padding: 2vw; }
+        .wraper .bottom .chat .window ul .time {
+          font-size: 0.5rem; }
+    .wraper .bottom .chat form input {
+      font-size: 1rem; } }
+
+@media only screen and (max-width: 550px) {
+  .container {
+    grid-row-gap: 1ch; }
+    .container header {
+      font-size: 1.3rem;
+      z-index: 10; }
+    .container .options {
+      grid-template-columns: 1fr;
+      grid-template-areas: "one" "two" "three";
+      grid-template-rows: 50% 25% 25%;
+      grid-row-gap: 5ch; }
+      .container .options .rules {
+        grid-area: "one"; }
+      .container .options .random {
+        grid-area: "three"; }
+      .container .options .link {
+        grid-area: "two";
+        font-size: 1rem; }
+        .container .options .link span {
+          font-size: 0.7rem; }
+  .wraper {
+    grid-template-rows: 15% 45% 25%; } }
+
+body .btn {
+  font-size: 1.2rem !important; }
+
+@media only screen and (max-width: 440px) {
+  .container {
+    grid-template-rows: 2fr 0.5fr 1.5fr; }
+    .container .options {
+      grid-row-gap: 2ch;
+      margin-top: 0; }
+      .container .options .link {
+        z-index: 2;
+        font-size: 1rem; }
+  .wraper {
+    overflow-y: scroll;
+    grid-template-rows: 16% 25% 36%;
+    grid-row-gap: 3ch; }
+    .wraper .middle .btn {
+      font-size: 1rem; }
+    .wraper .middle .center {
+      grid-template-rows: 30% 30%; }
+      .wraper .middle .center .anim {
+        height: 17vh; }
+        .wraper .middle .center .anim .lft {
+          height: 20vh;
+          z-index: 99;
+          justify-content: flex-start; }
+          .wraper .middle .center .anim .lft .rocks {
+            width: 25vw;
+            height: 1vh; }
+          .wraper .middle .center .anim .lft .papers {
+            width: 25vw;
+            height: 18vh; }
+          .wraper .middle .center .anim .lft .scissorss {
+            width: 25vw;
+            height: 15vh; }
+          .wraper .middle .center .anim .lft .lizards {
+            width: 25vw;
+            height: 15vh; }
+          .wraper .middle .center .anim .lft .spocks {
+            width: 25vw;
+            height: 18vh; }
+          .wraper .middle .center .anim .lft .bgimage {
+            width: 25vw;
+            height: 18vh; }
+        .wraper .middle .center .anim .rht {
+          height: 20vh;
+          justify-content: flex-start; }
+          .wraper .middle .center .anim .rht .rocks {
+            width: 25vw;
+            height: 15vh; }
+          .wraper .middle .center .anim .rht .papers {
+            width: 25vw;
+            height: 18vh; }
+          .wraper .middle .center .anim .rht .scissorss {
+            width: 25vw;
+            height: 15vh; }
+          .wraper .middle .center .anim .rht .lizards {
+            width: 25vw;
+            height: 15vh; }
+          .wraper .middle .center .anim .rht .spocks {
+            width: 25vw;
+            height: 18vh; }
+          .wraper .middle .center .anim .rht .bgimage {
+            width: 25vw;
+            height: 18vh; }
+      .wraper .middle .center .buttons {
+        z-index: 100; }
+        .wraper .middle .center .buttons .rock {
+          width: 12vw;
+          height: 24vh; }
+        .wraper .middle .center .buttons .paper {
+          width: 12vw;
+          height: 24vh; }
+        .wraper .middle .center .buttons .scissors {
+          width: 12vw;
+          height: 24vh; }
+        .wraper .middle .center .buttons .lizard {
+          width: 12vw;
+          height: 24vh; }
+        .wraper .middle .center .buttons .spock {
+          width: 12vw;
+          height: 24vh; }
+    .wraper .bottom {
+      margin-top: 2vw;
+      grid-row-gap: 1ch;
+      grid-template-rows: 75% 25%;
+      grid-template-areas: "chat chat chat" " back back back"; }
+      .wraper .bottom .chat {
+        grid-template-rows: 80% 20%; }
+        .wraper .bottom .chat .window {
+          width: 100%;
+          height: 18vh; }
+        .wraper .bottom .chat form {
+          column-gap: 1.5ch;
+          grid-template-columns: 65% 25%; }
+          .wraper .bottom .chat form input {
+            height: 80%;
+            font-size: 1rem; }
+          .wraper .bottom .chat form .sendb {
+            height: 100%;
+            width: 100%;
+            font-size: 0.5rem; }
+        .wraper .bottom .chat .window {
+          font-size: 0.8rem; }
+          .wraper .bottom .chat .window ul {
+            width: 70vw;
+            padding: 7vw 0 1vw 4vw; }
+            .wraper .bottom .chat .window ul .time {
+              font-size: 0.3rem; }
+      .wraper .bottom .back {
+        align-self: flex-end; }
+      .wraper .bottom .btn {
+        height: 6vh;
+        font-size: 1rem; } }
+
+@-webkit-keyframes pulse {
+  0% {
+    background: url(../images/5.png) no-repeat center/60%; }
+  25% {
+    background: url(../images/4.png) no-repeat center/60%; }
+  50% {
+    background: url(../images/3.png) no-repeat center/60%; }
+  75% {
+    background: url(../images/2.png) no-repeat center/60%; }
+  100% {
+    background: url(../images/1.png) no-repeat center/60%; } }
+
+@media only screen and (max-width: 480px) and (max-height: 320px) and (orientation: landscape) {
+  .container {
+    grid-row-gap: 4ch; }
+    .container .options {
+      grid-template-areas: "two" "three"; }
+      .container .options .rules {
+        display: none; } }
+
+@media only screen and (min-width: 568px) and (max-height: 320px) and (orientation: landscape) {
+  .container {
+    grid-row-gap: 4ch; }
+    .container .options {
+      margin-top: 0; } }
+
+@media only screen and (min-width: 568px) and (max-width: 900px) and (max-height: 415px) and (orientation: landscape) {
+  .container {
+    grid-template-rows: 25% 20% 40%; }
+    .container .options {
+      margin-top: 0; } }

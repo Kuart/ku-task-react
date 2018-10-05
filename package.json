@@ -17,7 +17,7 @@
   "scripts": {
     "start": "concurrently \"npm run react\" \"npm run server\" \"npm run watch-css\"",
     "react": "react-scripts start",
-    "server": "nodemon server.js",
+    "server": "nodemon src/server/server.js",
     "build-css": "node-sass-chokidar src/css/ -o src/css/",
     "watch-css": "npm run build-css && node-sass-chokidar src/css/ -o src/css/ --watch --recursive",
     "build": "react-scripts build",
