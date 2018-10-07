@@ -8,9 +8,16 @@ html, body {
   min-width: 320px;
   height: 100%;
   overflow: hidden;
-  color: #fff; }
+  color: #fff;
+  background: #0e0b3b; }
   html #root, body #root {
-    height: 100%; }
+    height: 100%;
+    color: #fff; }
+    html #root .error, body #root .error {
+      width: 40%;
+      margin: 20% auto;
+      text-align: center;
+      font-size: 32px; }
 
 .btn {
   width: 60%;
@@ -104,7 +111,6 @@ html, body {
     background: url(../images/1.png) no-repeat center/80%; } }
 
 .container {
-  background: #0e0b3b;
   height: 100%;
   width: 100vw;
   margin: auto;
@@ -117,18 +123,19 @@ html, body {
   .container .arrows {
     display: grid;
     align-items: center;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 100%;
+    grid-template-columns: repeat(9, 1fr);
     justify-content: center;
-    text-align: center;
-    height: 100%; }
+    text-align: center; }
     .container .arrows img {
       width: 100%;
-      height: 150%;
+      height: 70%;
+      align-self: center;
       z-index: 1; }
       .container .arrows img:nth-child(1) {
+        grid-column: 3/4;
         transform: rotate(-50deg) scale(-1, 1); }
       .container .arrows img:nth-child(2) {
+        grid-column: 7/8;
         transform: rotate(50deg); }
   .container .options {
     display: grid;
@@ -167,7 +174,9 @@ html, body {
       .container .options .link span {
         display: inline-block;
         z-index: 100;
-        color: #5FC5BA; }
+        color: #5FC5BA;
+        width: 80%;
+        word-wrap: break-word; }
         .container .options .link span:active {
           transform: scale(1.1); }
       .container .options .link .lit {
@@ -191,12 +200,12 @@ html, body {
     align-items: center;
     color: #fff; }
     .wraper .info .score_player-one span {
-      font-size: 1rem;
+      font-size: 1.2rem;
       color: #5FC5BA; }
     .wraper .info .text {
       font-size: 2rem; }
     .wraper .info .score_player-two span {
-      font-size: 1rem;
+      font-size: 1.2rem;
       color: #5FC5BA; }
   .wraper .middle {
     display: grid;
@@ -226,7 +235,7 @@ html, body {
           .wraper .middle .center .anim .lft .papers {
             animation: .65s ease-out 0s show;
             width: 15vw;
-            height: 30vh;
+            height: 31vh;
             background: url(../images/2.png) no-repeat center/90%;
             z-index: 100; }
           .wraper .middle .center .anim .lft .scissorss {
@@ -246,7 +255,7 @@ html, body {
           .wraper .middle .center .anim .lft .spocks {
             animation: .65s ease-out 0s show;
             width: 15vw;
-            height: 30vh;
+            height: 31vh;
             background: url(../images/5.png) no-repeat center/90%;
             z-index: 100; }
         .wraper .middle .center .anim .rht {
@@ -263,7 +272,7 @@ html, body {
           .wraper .middle .center .anim .rht .papers {
             animation: .65s ease-out 0s show;
             width: 15vw;
-            height: 30vh;
+            height: 31vh;
             background: url(../images/2.png) no-repeat center/90%;
             z-index: 100; }
           .wraper .middle .center .anim .rht .scissorss {
@@ -281,7 +290,7 @@ html, body {
           .wraper .middle .center .anim .rht .spocks {
             animation: .65s ease-out 0s show;
             width: 15vw;
-            height: 30vh;
+            height: 31vh;
             background: url(../images/5.png) no-repeat center/90%;
             z-index: 100; }
       .wraper .middle .center .buttons {
@@ -293,7 +302,7 @@ html, body {
         .wraper .middle .center .buttons .rock {
           background: url(../images/1.png) no-repeat center/80%;
           width: 6vw;
-          height: 12vh;
+          height: 12.5vh;
           cursor: pointer;
           border-radius: 50%;
           box-shadow: none;
@@ -301,29 +310,29 @@ html, body {
         .wraper .middle .center .buttons .paper {
           background: url(../images/2.png) no-repeat center/90%;
           width: 6vw;
-          height: 14vh;
+          height: 13vh;
           cursor: pointer;
           border-radius: 50%;
           box-shadow: none;
           z-index: 101; }
         .wraper .middle .center .buttons .scissors {
           background: url(../images/3.png) no-repeat center/100%;
-          width: 6vw;
-          height: 12vh;
+          width: 6.5vw;
+          height: 12.7vh;
           cursor: pointer;
           border-radius: 50%;
           box-shadow: none; }
         .wraper .middle .center .buttons .lizard {
-          background: url(../images/4.png) no-repeat center/80%;
+          background: url(../images/4.png) no-repeat center/84%;
           width: 6vw;
-          height: 12vh;
+          height: 12.5vh;
           cursor: pointer;
           border-radius: 50%;
           box-shadow: none; }
         .wraper .middle .center .buttons .spock {
           background: url(../images/5.png) no-repeat center/90%;
           width: 6vw;
-          height: 12vh;
+          height: 12.5vh;
           cursor: pointer;
           border-radius: 50%;
           box-shadow: none;
@@ -359,18 +368,20 @@ html, body {
         border: 1px solid #000;
         font-size: 1.4rem;
         list-style: none;
-        display: flex; }
+        display: grid; }
         .wraper .bottom .chat .window::scrollbar-track {
           height: 10px;
           width: 6px;
-          background: transparent; }
+          background: transparent;
+          -moz-background: transparent; }
         .wraper .bottom .chat .window::-webkit-scrollbar {
           width: 12px; }
         .wraper .bottom .chat .window::-webkit-scrollbar-thumb {
           border-radius: 10px;
-          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+          -moz-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }
         .wraper .bottom .chat .window ul {
-          align-self: flex-end;
+          align-self: flex-start;
           display: flex;
           flex-direction: column;
           position: relative;
@@ -378,7 +389,9 @@ html, body {
           justify-content: flex-end;
           word-wrap: break-word;
           width: 38vw;
-          padding: 5vw 0 0 1vw; }
+          padding: 5vw 0 0 1vw;
+          margin: 0;
+          padding: 5px 0 2px 5px; }
           .wraper .bottom .chat .window ul li {
             position: relative;
             list-style: none;
@@ -424,9 +437,6 @@ html, body {
 @media only screen and (min-width: 1600px) {
   .container header {
     font-size: 5rem; }
-  .container .arrows img {
-    width: 100%;
-    height: 50%; }
   .container .options .link {
     font-size: 3rem; } }
 
@@ -608,7 +618,7 @@ body .btn {
           justify-content: flex-start; }
           .wraper .middle .center .anim .lft .rocks {
             width: 25vw;
-            height: 1vh; }
+            height: 18vh; }
           .wraper .middle .center .anim .lft .papers {
             width: 25vw;
             height: 18vh; }

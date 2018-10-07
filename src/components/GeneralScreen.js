@@ -4,9 +4,11 @@ import Button from './Button';
 import Rules from './Rules';
 import Preloader from './Preloader';
 import {FOUND, SEARCHING} from '../Events';
-import {Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom';
+import ErrorBoundary from './ErrorBoundary';
+import {soundManager} from 'soundmanager2/script/soundmanager2-nodebug-jsmin.js';
 
-export default class WaitingScreen extends Component{
+export default class GeneralScreen extends Component{
     constructor(props){
         super(props);
         
@@ -18,7 +20,7 @@ export default class WaitingScreen extends Component{
         }
     }
 
-    //function for coping link
+    //function for copying link
 	selectText(val) {
         let text = document.getElementById(val), 
             range, 
@@ -28,8 +30,6 @@ export default class WaitingScreen extends Component{
 			range = document.body.createTextRange();
 			range.moveToElementText(text);
             range.select();
-            console.log(text)
-			
 		} else if (window.getSelection) {
 			selection = window.getSelection();
 			range = document.createRange();
@@ -37,52 +37,64 @@ export default class WaitingScreen extends Component{
 			selection.removeAllRanges();
             selection.addRange(range);
 		}
-	}
-	//after click copy link 
+    };
+    
+	//copying link after click
 	hClick = (e)=>{
         e.preventDefault()
         let val = e.target.id
         this.selectText(val)
         document.execCommand("copy");
-        window.getSelection().removeAllRanges()
-    }
+        window.getSelection().removeAllRanges();
+    };
 		
     componentDidMount(){
-        const {socket} = this.props
-        //if game found change state
+        const {socket} = this.props;
+        //if game found, take game room ID, remove from search and setState for redirect
         socket.on(FOUND, (id)=>{
-            this.setState({"found": true, "roomId": id, searching: false }) 
+            this.setState({"found": true, "roomId": id, searching: false });
+            this.playSound()
         })
 
         socket.on('join', ()=>{
-            this.setState({join: true })
+            this.setState({join: true });
+            this.playSound()
         })
-    }
-    
-    componentWillUnmount(){
-        const {socket} = this.props
-        socket.off('FOUND');
-        socket.off('join');   
-    }
+    };
 
     handleClick = (e)=>{
-        const {socket} = this.props
-        const {searching} = this.state
+        const {socket} = this.props;
+        const {searching} = this.state;
         e.preventDefault();
-        //start seaching after click
-        this.setState({searching: !searching})
-        //send info adbout seaching
-        socket.emit(SEARCHING, (searching))
-    }
+        //start searching after click
+        this.setState({searching: !searching});
+        //send info about start searching
+        socket.emit(SEARCHING, (searching));
+    };
 
+    playSound() {
+        soundManager.createSound({
+            id: 'income',
+            url: '/../sound/income.mp3',
+            debugMode: false,
+        });
+        soundManager.play('income');
+    };
+
+    componentWillUnmount(){
+        const {socket} = this.props;
+        socket.off('FOUND');
+        socket.off('join');   
+    };
+    
     render(){
-        const {socket} = this.props
-        const {found, roomId, searching, join } = this.state
+        const {socket} = this.props;
+        const {found, roomId, searching, join } = this.state;
         return(
                 <div className="container">
-                    <Preloader/>
-                    {found && <Redirect push to={`/play/${roomId}`}/>}  {/* redirect to found random room */}
-                    {join && <Redirect push to={`/play/${socket.id}`}/>} {/* redirect to 2users room */}
+                    <ErrorBoundary><Preloader/></ErrorBoundary>
+                    {found && <Redirect push to={`/play/${roomId}`}/>}  {/* redirect to found random game room*/}
+                    {join && <Redirect push to={`/play/${socket.id}`}/>} {/* redirect to room from link */}
                     <header>
                             Welcome to the online <br/>
                             Rock-Paper-Scissors-Spock-Lizard game
@@ -103,7 +115,7 @@ export default class WaitingScreen extends Component{
                         <div className="link">
                             Send your friend this link:  <br/> <span 
                                                                     id="text"
-                                                                    onClick = {this.hClick}>http://localhost:3000/<br/>play/{socket.id}</span><br/> 
+                                                                    onClick = {this.hClick}>http://localhost:3000/play/{socket.id}</span><br/> 
                             and start playing right now! <br/>
                             <span className='lit'>(Just click and it will be copied!)</span> 
                         </div>

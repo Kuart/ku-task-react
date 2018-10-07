@@ -6,21 +6,22 @@ export default class Preloader extends Component {
   	this.state = {
     	animatedClass: ''
     }
-  }
+  };
+  
   componentDidMount() {
   	this.preloaderFade = setTimeout(() => this.setState({    //preloader fade out
     	animatedClass: 'animated'
 		}), 400);
 		this.preloaderOff = setTimeout(() => this.setState({		//preloader display off
     	animatedClass: 'none'
-    }), 1000);
-	}
+	}), 1000);
+	};
 	
 	componentWillUnmount(){
 		clearTimeout(this.preloaderFade);
 		clearTimeout(this.preloaderOff);
 	}
-	render() {
+	render() {	
   	return <div className={`animated-tag ${this.state.animatedClass}`}/>;
   }
 }

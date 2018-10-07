@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GeneralScreen from './components/GeneralScreen'
+import GeneralScreen from './components/GeneralScreen';
 import {Switch, Route} from 'react-router-dom';
 import Play from './components/game/Play';
 import io from 'socket.io-client';
@@ -15,33 +15,31 @@ export default class App extends Component {
       socket: null,
       pathReady: false
    }
-  }
+  };
 
-  //init io bef. render
   componentWillMount(){
-    this.initSocket()   
-}
+    this.initSocket();   
+};
 
-//socket operation connect/disc, get user, room
   initSocket = () =>{
-      const socket = io(socketUrl);
-      const path = window.location.pathname  //take pathname
-      this.setState({socket: socket})
+    const socket = io(socketUrl);
+    const path = window.location.pathname;  //take path(last part of path = game room ID)
+    this.setState({socket: socket});
 
-  socket.on('connect', () => {         
-      socket.emit(USER_CONNECTED, (path)) 
-  }) 
+    socket.on('connect', () => {         
+        socket.emit(USER_CONNECTED, (path));
+    }) 
 
-  socket.on(USER_CONNECTED, ()=>{       
-      this.setState({pathReady: true})
-  })
-}
+    socket.on(USER_CONNECTED, ()=>{       
+        this.setState({pathReady: true});
+    })
+};
 
   render() {
-    const { socket} = this.state
+    const { socket } = this.state;
     return (
       <Switch>
-        <Route exact path='/' render={() => <GeneralScreen socket={socket} />}/>    
+        <Route exact path='/' render={() => <GeneralScreen socket={socket} /> }/>    
         <Route exact path='/play/:room' render={() => <Play socket={socket} />}/>
       </Switch> 
     );

@@ -11,8 +11,17 @@ html, body
     height: 100%
     overflow: hidden
     color: #fff
+    background:  $color
     #root
         height: 100%
+        color: #fff
+        .error
+            width: 40%
+            margin: 20% auto
+            text-align: center
+            font-size: 32px
+            
+
 //situational styles
 .btn
     width: 60%
@@ -98,7 +107,6 @@ html, body
 
 //GeneralScreen styles
 .container
-    background:  $color
     height: 100%
     width: 100vw
     margin: auto
@@ -111,19 +119,20 @@ html, body
     .arrows
         display: grid
         align-items: center
-        grid-template-columns: repeat(2, 1fr)
-        grid-template-rows: 100%
+        grid-template-columns: repeat(9, 1fr)
         justify-content: center
         text-align: center
-        height: 100%
         img
             width: 100%
-            height: 150%
+            height: 70%
+            align-self: center
             z-index: 1
             &:nth-child(1)
+                grid-column: 3/4
                 transform: rotate(-50deg)  scale(-1, 1) 
             &:nth-child(2)
-                transform: rotate(50deg)               
+                grid-column: 7/8
+                transform: rotate(50deg)      
     .options
         display: grid
         grid-template-areas: "one three two" 
@@ -162,6 +171,8 @@ html, body
                 display: inline-block
                 z-index: 100
                 color: $accent
+                width: 80%
+                word-wrap: break-word
                 &:active
                     transform: scale(1.1)
             .lit
@@ -187,13 +198,13 @@ html, body
         color: #fff
         .score_player-one
             span
-                font-size: 1rem
+                font-size: 1.2rem
                 color: $accent
         .text
             font-size: 2rem
         .score_player-two
             span
-                font-size: 1rem
+                font-size: 1.2rem
                 color: $accent
     .middle
         display: grid
@@ -223,7 +234,7 @@ html, body
                     .papers
                         animation: .65s ease-out 0s show
                         width: 15vw
-                        height: 30vh
+                        height: 31vh
                         background: url(../images/2.png) no-repeat center / 90%
                         z-index: 100
                     .scissorss
@@ -243,7 +254,7 @@ html, body
                     .spocks
                         animation: .65s ease-out 0s show
                         width: 15vw
-                        height: 30vh   
+                        height: 31vh   
                         background: url(../images/5.png) no-repeat center / 90% 
                         z-index: 100
                 .rht
@@ -260,7 +271,7 @@ html, body
                     .papers
                         animation: .65s ease-out 0s show
                         width: 15vw
-                        height: 30vh
+                        height: 31vh
                         background: url(../images/2.png) no-repeat center / 90%
                         z-index: 100
                     .scissorss
@@ -278,7 +289,7 @@ html, body
                     .spocks
                         animation: .65s ease-out 0s show
                         width: 15vw
-                        height: 30vh
+                        height: 31vh
                         background: url(../images/5.png) no-repeat center / 90%
                         z-index: 100 
 
@@ -291,7 +302,7 @@ html, body
                 .rock
                     background: url(../images/1.png) no-repeat center / 80%
                     width: 6vw
-                    height: 12vh
+                    height: 12.5vh
                     cursor: pointer
                     border-radius: 50%
                     box-shadow: none
@@ -299,29 +310,29 @@ html, body
                 .paper
                     background: url(../images/2.png) no-repeat center / 90%
                     width: 6vw
-                    height: 14vh
+                    height: 13vh
                     cursor: pointer
                     border-radius: 50%
                     box-shadow: none
                     z-index: 101
                 .scissors
                     background: url(../images/3.png) no-repeat center   / 100%
-                    width: 6vw
-                    height: 12vh
+                    width: 6.5vw
+                    height: 12.7vh
                     cursor: pointer
                     border-radius: 50%
                     box-shadow: none
                 .lizard
-                    background: url(../images/4.png) no-repeat center / 80%
+                    background: url(../images/4.png) no-repeat center / 84%
                     width: 6vw
-                    height: 12vh
+                    height: 12.5vh
                     cursor: pointer
                     border-radius: 50%
                     box-shadow: none
                 .spock
                     background: url(../images/5.png) no-repeat center / 90%
                     width: 6vw
-                    height: 12vh
+                    height: 12.5vh
                     cursor: pointer
                     border-radius: 50%
                     box-shadow: none
@@ -359,19 +370,20 @@ html, body
                 border: 1px solid #000
                 font-size: 1.4rem
                 list-style: none
-                display: flex
-                padding-top: 
+                display: grid
                 &::scrollbar-track  
                     height: 10px
                     width: 6px
                     background: transparent
+                    -moz-background: transparent
                 &::-webkit-scrollbar
                     width: 12px
                 &::-webkit-scrollbar-thumb 
                     border-radius: 10px
                     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5) 
+                    -moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.5) 
                 ul
-                    align-self: flex-end
+                    align-self: flex-start
                     display: flex
                     flex-direction: column
                     position: relative
@@ -380,6 +392,8 @@ html, body
                     word-wrap: break-word
                     width: 38vw
                     padding: 5vw 0 0 1vw
+                    margin: 0
+                    padding: 5px 0 2px 5px
                     li
                         position: relative
                         list-style: none
@@ -426,3 +440,4 @@ html, body
 
 //adaptive
 @import "media"
+
