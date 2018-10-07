@@ -63,9 +63,7 @@ module.exports = function(socket){
         rooms = removeFromRoom(rooms, socket.id);  
         room = [socket.id];
         rooms = addRoom(rooms, room, socket);
-        rooms = addRoom(rooms, room, socket);
-        console.log(socket.adapter.rooms);
-        
+        rooms = addRoom(rooms, room, socket);   
     });
 
     /* remove from arrays data about user  */
